@@ -1,10 +1,18 @@
 version: '3'
 
 services:
-  wildfly:
-    build: ./wildfly
+  wildfly10:
+    build:
+      context: ./wildfly
+      dockerfile: Dockerfile-10
     ports:
       - "8081:8080"
+  wildfly11:
+    build:
+      context: ./wildfly
+      dockerfile: Dockerfile-11
+    ports:
+      - "8181:8080"
   glassfish:
     build: ./glassfish
     command: sh /deploy.sh
